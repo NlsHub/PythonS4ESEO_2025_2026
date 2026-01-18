@@ -1,0 +1,9 @@
+{
+  "nodes": ["Paris", "Lyon", "Marseille", "Bordeaux", "Lille"],
+  "edges": [
+    ["Paris", "Lyon"],
+    ["Paris", "Lille"],
+    ["Lyon", "Marseille"],
+    ["Bordeaux", "Lyon"]
+  ]
+}
