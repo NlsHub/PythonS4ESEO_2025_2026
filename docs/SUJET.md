@@ -114,30 +114,6 @@ dict_to_graph(data: dict) -> Graph
 
 ---
 
-## 📊 Évaluation
-
-### Répartition des points (sur 20)
-
-- **Code & Tests** : 14 points
-  - Palier A (Graphe) : 2 pts
-  - Palier B (DFS) : 2 pts
-  - Palier C (BFS) : 2 pts
-  - Palier D (Problèmes) : 2 pts
-  - Palier E (I/O) : 2 pts
-  - Qualité du code : 2 pts
-  - Interface graphique : 2 pts
-
-- **Git** : 3 points
-  - Commits réguliers et clairs
-  - Utilisation des branches
-  - Collaboration (PR, revues)
-
-- **Restitution orale** : 3 points
-  - Démo de l'application
-  - Compréhension des algorithmes
-  - Réponses aux questions
-
-**Bonus** : jusqu'à +2 points
 
 ### Critères de réussite
 
@@ -236,8 +212,6 @@ git checkout -b feat/setup
 **Questions sur le projet** : Posez-les en séance ou par email
 
 **Problèmes Git** : Consultez `docs/GUIDE_GIT.md`
-
-**Algorithmes** : Consultez `docs/GUIDE_SEANCES.md`
 
 ---
 
