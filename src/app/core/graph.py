@@ -52,7 +52,8 @@ class Graph:
             True
         """
         # TODO: implémenter
-        self.graph[node] = []
+        if node not in self.graph:
+            self.graph[node] = []
     
     def add_edge(self, a: str, b: str) -> None:
         """
@@ -99,9 +100,10 @@ class Graph:
         if node not in self.graph.keys():
             raise ValueError("le noeud n'existe pas")
         
-        neighbors_list = self.graph[node]
-        for neighbor in neighbors_list:
-            self.graph[neighbor].remove(node)
+        neighborsList = self.graph[node]
+        for neighbor in neighborsList:
+            if node in self.graph[neighbor]:
+                self.graph[neighbor].remove(node)
 
         del self.graph[node]
     
@@ -152,7 +154,7 @@ class Graph:
         
         #vérifie que le noeud existe
         if node not in self.graph:
-            return []
+            raise ValueError(f"Le nœud '{node}' n'existe pas")
         
         #renvoie liste triée des voisins       
         return sorted(self.graph[node])
