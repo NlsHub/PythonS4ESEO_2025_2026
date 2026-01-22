@@ -190,7 +190,12 @@ class Graph:
         """
         # TODO: implémenter
         # Astuce : utiliser un set pour éviter les doublons
-        pass
+        arete = []
+        for i in self.graph:
+            for j in self.graph[i]:
+                if i < j:
+                    arete.append((i, j))
+        return sorted(arete)
     
     def __len__(self) -> int:
         """Retourne le nombre de nœuds dans le graphe."""
