@@ -138,9 +138,13 @@ class Graph:
             >>> g.neighbors("A")
             ['B', 'M', 'Z']  # Toujours en ordre alphabétique
         """
-        # TODO: implémenter
-        # ⚠️ IMPORTANT : retourner une COPIE triée, pas la liste interne
-        pass
+        
+        #vérifie que le noeud existe
+        if node not in self.graph:
+            return []
+        
+        #renvoie liste triée des voisins       
+        return sorted(list(self.graph[node]))
     
     def has_node(self, node: str) -> bool:
         """Vérifie si un nœud existe dans le graphe."""
