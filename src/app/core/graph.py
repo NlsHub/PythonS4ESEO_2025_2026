@@ -144,7 +144,7 @@ class Graph:
             return []
         
         #renvoie liste triée des voisins       
-        return sorted(list(self.graph[node]))
+        return sorted(self.graph[node])
     
     def has_node(self, node: str) -> bool:
         """Vérifie si un nœud existe dans le graphe."""
