@@ -199,12 +199,12 @@ class Graph:
         if len(self.graph) == 0 :
             return []
         
-        arete = []
-        for i in self.graph:
-            for j in self.graph[i]:
-                if i < j:
-                    arete.append((i, j))
-        return sorted(arete)
+        aretes = []
+        for u in self.graph:
+            for v in self.graph[u]:
+                if u < v:
+                    aretes.append((u, v))
+        return sorted(aretes)
     
     def __len__(self) -> int:
         """Retourne le nombre de nœuds dans le graphe."""
