@@ -65,7 +65,8 @@ def dfs(graph: Graph, start: str) -> list[str]:
         if graph.has_node(noeudActuel):
             for element in graph.neighbors(noeudActuel) :
                 if element not in noeudVisite :
-                    pile.append(element)
+                    pile.append(element)      
+    return noeudVisite
     
 
 def dfs_path(graph: Graph, start: str, goal: str) -> list[str] | None:
