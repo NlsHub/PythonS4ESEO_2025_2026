@@ -126,8 +126,13 @@ def bfs(graph: Graph, start: str) -> list[str]:
     """
     # TODO: implémenter BFS
     # Astuce : file = deque(), visited = set
-    deque=(start)
-    return deque
+    file=deque(start)
+    visités=set()
+    while len(file) !=0:
+        noeud=file.popleft()
+        if node not in visités:
+            visités.add(noeud)
+            for neighbor in graph
 
 def bfs_path(graph: Graph, start: str, goal: str) -> list[str] | None:
     """
