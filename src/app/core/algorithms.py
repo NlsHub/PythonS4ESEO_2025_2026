@@ -152,6 +152,22 @@ def bfs(graph: Graph, start: str) -> list[str]:
     """
     # TODO: implémenter BFS
     # Astuce : file = deque(), visited = set
+    
+    if start not in graph.graph:
+        raise ValueError(f"Le nœud de départ '{start}' n'existe pas dans le graphe.")
+
+    file = deque([start])
+    visites = {start}
+    ordre_parcours = []
+
+    while file:
+        noeud = file.popleft()
+        ordre_parcours.append(noeud)
+        for voisin in (graph.neighbors(noeud) or []):
+            if voisin not in visites:
+                visites.add(voisin)
+                file.append(voisin)  
+    return ordre_parcours
 
 def bfs_path(graph: Graph, start: str, goal: str) -> list[str] | None:
     """
