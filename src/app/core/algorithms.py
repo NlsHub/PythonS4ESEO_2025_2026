@@ -287,8 +287,17 @@ def reachable_from(graph: Graph, start: str) -> set[str]:
     """
     # TODO: implémenter
     # Astuce : réutiliser dfs() et convertir en set
-    pass
-
+    if start not in graph.graph:
+        raise ValueError(f"{start} n'est pas dans le graphe.")
+    liste=[start]
+    visites=set()
+    while liste:
+        noeud=liste.pop()
+        if noeud not in visites:
+            visites.add(noeud)
+            for voisin in (graph.neighbors(noeud or [])):
+                liste.append(voisin)
+    return visites
 
 def shortest_path(graph: Graph, start: str, goal: str) -> list[str] | None:
     """
