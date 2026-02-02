@@ -228,10 +228,9 @@ def is_connected(graph: Graph) -> bool:
         return True
     noeudDepart = elementGraph[0]
     chemin = dfs(graph, noeudDepart)
-    for element in chemin:
-            if element not in elementGraph:
-                return False
-    return True
+    if len(elementGraph) == len(chemin) :
+        return True
+    return False
 
 def reachable_from(graph: Graph, start: str) -> set[str]:
     """
