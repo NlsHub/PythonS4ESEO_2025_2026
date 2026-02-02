@@ -325,7 +325,7 @@ def shortest_path(graph: Graph, start: str, goal: str) -> list[str] | None:
     # Astuce : appeler bfs_path()
     if not graph.has_node(start):
         return None
-    chemin = bfs_path(graph, start, goal)
+    return bfs_path(graph, start, goal)
 
 
 # ============================================================================
