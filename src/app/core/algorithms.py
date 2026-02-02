@@ -201,10 +201,10 @@ def bfs_path(graph: Graph, start: str, goal: str) -> list[str] | None:
     # TODO: implémenter
     if not graph.has_node(start):
         return None
-    pile = [(start, [start])]
+    file = [(start, [start])]
     visites = []
-    while len(pile) > 0:
-        noeudActuel, cheminActuel = pile.pop()
+    while len(file) > 0:
+        noeudActuel, cheminActuel = file.pop(0)
         if noeudActuel == goal:
             return cheminActuel
         if noeudActuel not in visites:
@@ -213,7 +213,7 @@ def bfs_path(graph: Graph, start: str, goal: str) -> list[str] | None:
             for voisin in voisins[::-1]:
                 if voisin not in visites:
                     nouveauChemin = cheminActuel + [voisin]
-                    pile.append((voisin, nouveauChemin))
+                    file.append((voisin, nouveauChemin))
     return None
 
 
