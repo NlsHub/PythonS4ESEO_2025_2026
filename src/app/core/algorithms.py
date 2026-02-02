@@ -223,15 +223,6 @@ def is_connected(graph: Graph) -> bool:
     """
     # TODO: implémenter
     # Astuce : réutiliser dfs() ou bfs()
-    elementGraph = graph.nodes()
-    if len(elementGraph) == 0 :
-        return True
-    noeudDepart = elementGraph[0]
-    chemin = dfs(graph, noeudDepart)
-    for element in chemin:
-            if element not in elementGraph:
-                return False
-    return True
 
 def reachable_from(graph: Graph, start: str) -> set[str]:
     """
