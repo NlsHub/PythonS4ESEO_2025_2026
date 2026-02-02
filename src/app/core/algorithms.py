@@ -152,6 +152,22 @@ def bfs(graph: Graph, start: str) -> list[str]:
     """
     # TODO: implémenter BFS
     # Astuce : file = deque(), visited = set
+    
+    if start not in graph.graph:
+        raise ValueError(f"Le nœud de départ '{start}' n'existe pas dans le graphe.")
+
+    file = deque([start])
+    visites = {start}
+    ordre_parcours = []
+
+    while file:
+        noeud = file.popleft()
+        ordre_parcours.append(noeud)
+        for voisin in (graph.neighbors(noeud) or []):
+            if voisin not in visites:
+                visites.add(voisin)
+                file.append(voisin)  
+    return ordre_parcours
 
 def bfs_path(graph: Graph, start: str, goal: str) -> list[str] | None:
     """
@@ -183,7 +199,22 @@ def bfs_path(graph: Graph, start: str, goal: str) -> list[str] | None:
         File contient des tuples (nœud, chemin_jusqu'ici).
     """
     # TODO: implémenter
-    pass
+    if not graph.has_node(start):
+        return None
+    file = [(start, [start])]
+    visites = []
+    while len(file) > 0:
+        noeudActuel, cheminActuel = file.pop(0)
+        if noeudActuel == goal:
+            return cheminActuel
+        if noeudActuel not in visites:
+            visites.append(noeudActuel)
+            voisins = graph.neighbors(noeudActuel)
+            for voisin in voisins[::-1]:
+                if voisin not in visites:
+                    nouveauChemin = cheminActuel + [voisin]
+                    file.append((voisin, nouveauChemin))
+    return None
 
 
 # ============================================================================
@@ -247,7 +278,17 @@ def reachable_from(graph: Graph, start: str) -> set[str]:
     """
     # TODO: implémenter
     # Astuce : réutiliser dfs() et convertir en set
-    pass
+    if start not in graph.graph:
+        raise ValueError(f"{start} n'est pas dans le graphe.")
+    liste=[start]
+    visites=set()
+    while liste:
+        noeud=liste.pop()
+        if noeud not in visites:
+            visites.add(noeud)
+            for voisin in (graph.neighbors(noeud or [])):
+                liste.append(voisin)
+    return visites
 
 
 def shortest_path(graph: Graph, start: str, goal: str) -> list[str] | None:
