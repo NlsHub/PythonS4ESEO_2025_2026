@@ -226,7 +226,6 @@ def is_connected(graph: Graph) -> bool:
     elementGraph = graph.nodes()
     if len(elementGraph) == 0 :
         return True
-    visites = []
     noeudDepart = elementGraph[0]
     chemin = dfs(graph, noeudDepart)
     for element in chemin:
