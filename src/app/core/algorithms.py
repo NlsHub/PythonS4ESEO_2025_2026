@@ -290,7 +290,6 @@ def reachable_from(graph: Graph, start: str) -> set[str]:
                 liste.append(voisin)
     return visites
 
-
 def shortest_path(graph: Graph, start: str, goal: str) -> list[str] | None:
     """
     Trouve le plus court chemin entre deux nœuds.
