@@ -254,14 +254,6 @@ def is_connected(graph: Graph) -> bool:
     """
     # TODO: implémenter
     # Astuce : réutiliser dfs() ou bfs()
-    elementGraph = graph.nodes()
-    if len(elementGraph) == 0 :
-        return True
-    noeudDepart = elementGraph[0]
-    chemin = dfs(graph, noeudDepart)
-    if len(elementGraph) == len(chemin) :
-        return True
-    return False
 
 def reachable_from(graph: Graph, start: str) -> set[str]:
     """
@@ -298,7 +290,6 @@ def reachable_from(graph: Graph, start: str) -> set[str]:
                 liste.append(voisin)
     return visites
 
-
 def shortest_path(graph: Graph, start: str, goal: str) -> list[str] | None:
     """
     Trouve le plus court chemin entre deux nœuds.
@@ -325,7 +316,7 @@ def shortest_path(graph: Graph, start: str, goal: str) -> list[str] | None:
     # Astuce : appeler bfs_path()
     if not graph.has_node(start):
         return None
-    return bfs_path(graph, start, goal)
+    chemin = bfs_path(graph, start, goal)
 
 
 # ============================================================================
